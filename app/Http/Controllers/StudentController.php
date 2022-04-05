@@ -52,9 +52,9 @@ class StudentController extends Controller
             $st->name = $req->name;
             $st->email = $req->email;
             $st->sid = $req->sid;
-            if ($st->save()) {
-
-                return response()->json(["msg" => "Added Successfully"], 200);
+            if ($st->update()) {
+                return redirect('http://localhost:3000/allstudent');
+                // return response()->json(["msg" => "Added Successfully"], 200);
             }
         } catch (\Exception $ex) {
             return response()->json(["errormsg" => "Could not add"], 500);
